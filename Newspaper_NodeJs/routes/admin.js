@@ -11,7 +11,7 @@ const adminController = require("../components/admin/controller");
  * method: get
  * desc: Hiển thị trang đăng nhập ADMIN
  */
-router.get("/login", function (req, res, next) {
+router.get("/", function (req, res, next) {
   res.render("login");
 });
 
@@ -20,7 +20,7 @@ router.get("/login", function (req, res, next) {
  * method: post
  * desc: Tiến hành đăng nhập ADMIN
  */
-router.post("/login", async function (req, res, next) {
+router.post("/", async function (req, res, next) {
   const { username, password } = req.body;
   const admin = await adminController.login(username, password);
   if (admin) {
@@ -28,7 +28,7 @@ router.post("/login", async function (req, res, next) {
     req.session.token = token;
     res.redirect("/newspaper");
   } else {
-    res.redirect("/admin/login");
+    res.redirect("/login");
   }
 });
 

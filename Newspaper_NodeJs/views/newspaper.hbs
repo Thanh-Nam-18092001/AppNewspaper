@@ -155,7 +155,7 @@
 <script>
     const edit = (id) => {
         // http://localhost:3000/newspaper/:id/edit
-        window.location.href = `http://localhost:3000/newspaper/${id}/edit`
+        window.location.href = `http://app-newspaper-vtn.herokuapp.com/newspaper/${id}/edit`
     }
     let deleted_id;
     const onClickDelete = (id) => {
@@ -166,7 +166,7 @@
         return res.json();
     }
     const onDelete = async () => {
-        const url = `http://localhost:3000/newspaper/${deleted_id}/delete`;
+        const url = `http://app-newspaper-vtn.herokuapp.com/newspaper/${deleted_id}/delete`;
         const option = {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' }

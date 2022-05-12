@@ -7,6 +7,7 @@ var logger = require('morgan');
 const session = require('express-session');
 const mongoose = require('mongoose');
 require('./components/admin/model');
+require('./components/newspaper/model');
 
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
@@ -38,7 +39,7 @@ mongoose.connect('mongodb+srv://VoThanhNam:18092001@cluster0.5fgdb.mongodb.net/N
   .then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
   .catch(err => console.log('>>>>>>>>> DB Error: ', err));
 
-app.use('/admin', adminRouter);
+app.use('/', adminRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/newspaper', newspaperRouter);

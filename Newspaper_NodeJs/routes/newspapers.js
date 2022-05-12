@@ -39,7 +39,7 @@ router.post("/", [upload.single('image')], async function (req, res, next) {
   let { body, file } = req;
   let image = '';
   if (file) {
-    image = `http://192.168.1.21:3000/images/${file.filename}`
+    image = `http://app-newspaper-vtn.herokuapp.com/images/${file.filename}`
   }
   body = { ...body, image }
   await newspaperController.insert(body);
@@ -82,7 +82,7 @@ router.post("/:id/edit", [upload.single('image')], async function (req, res, nex
   let { body, file, params } = req;
   delete body.image;
   if (file) {
-    let image = `http://192.168.1.21:3000/images/${file.filename}`
+    let image = `http://app-newspaper-vtn.herokuapp.com/images/${file.filename}`
     body = { ...body, image }
   }
   await newspaperController.update(params.id, body);
