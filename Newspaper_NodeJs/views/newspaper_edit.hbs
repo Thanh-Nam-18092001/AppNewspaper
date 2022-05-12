@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #F8F8F8;">
+    <div>
+        <div>
+            <h1 style="text-align: center;">Edit Newspapers Profile</h1>
+        </div>
+        <div class="frominsert">
+            <form role="form" method="post" action="/newspaper/{{newspaper._id}}/edit" enctype="multipart/form-data"
+                style=" padding-left: 20px; padding-top: 20px;">
+                <div class="fromtable">
+                    <div class="left">
+                        <div class="textinput">
+                            <label style="font-weight: bold;">Name:</label>
+                            <input style="margin-left: 8px; width:500px; height: 25px;" id="name" type="text"
+                                name="name" value="{{newspaper.name}}" />
+                        </div>
+                        <div class="textinput">
+                            <label style="font-weight: bold;">Date: </label>
+                            <input id="date" type="date" name="date" value="{{newspaper.date}}" class="fromkhung" />
+                        </div>
+                        <div class="textinput">
+                            <label style="font-weight: bold;">Time: </label>
+                            <input style="margin-left: 10px; width:500px; height: 25px; margin-bottom: 10px;" id="time"
+                                type="time" name="time" value="{{newspaper.time}}" />
+                        </div>
+                        <div style="width:550px ;height:300px">
+                            <label style="font-weight: bold;">Image: </label>
+                            <input class="form-control" name="image" type="file" />
+                            <img src="{{newspaper.image}}" style="width: 100%; height: 300px; margin-top: 8px;" />
+                        </div>
+                        <div class="btnsum">
+                            <button type="submit" id="submit" class="btn btn-primary"
+                                style="color: white;">Submit</button>
+                            <button type="reset" class="btn btn-reset" style="color: white;">Reset</button>
+                            <button type="button" class="btn"><a style="color: white; text-decoration-line: none;"
+                                    href="/newspaper">Cancel</a></button>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="textinput">
+                            <label style="font-weight: bold;">Category: </label>
+                            <select class="form-control" style="width:250px; height: 25px;" name="category_id">
+                                {{#each categories}}
+                                {{#if this.selected}}
+                                <option selected value="{{this._id}}">{{this.name}}</option>
+                                {{else}}
+                                <option value="{{this._id}}">{{this.name}}</option>
+                                {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="textinput">
+                            <label style="font-weight: bold;">Content: </label>
+                            <textarea style="width: 630px; height: 350px;" id="contents" type="text" name="contents">
+                                    {{newspaper.contents}}
+                            </textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<style>
+    .btn {
+        width: 100px;
+        height: 30px;
+        background-color: aqua;
+        border: white;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: rgb(83, 107, 107);
+        color: white;
+    }
+
+    .btnsum {
+        margin-top: 35px;
+    }
+
+    .right {
+        width: 50%;
+    }
+
+    .left {
+        width: 50%;
+    }
+
+    .fromkhung {
+        width: 500px;
+        height: 25px;
+        margin-left: 15px;
+    }
+
+    .textinput {
+        margin-top: 10px
+    }
+
+    .fromtable {
+        display: flex;
+        width: 100%;
+    }
+
+    .frominsert {
+        background-color: white;
+        box-shadow: 0px 0px 10px grey;
+        height: 520px;
+        border-radius: 10px;
+    }
+</style>
