@@ -26,7 +26,7 @@
                     style="width: 50px; height: 30px; margin-bottom: 5px; margin-left: 8px;"><i class="fa fa-search"
                         style="font-size:16px;"></i></button>
             </form>
-            <button class="btn" style="margin-top: 10px; margin-left: 8px; color: white;"><a href="/admin/log-out"
+            <button class="btn" style="margin-top: 10px; margin-left: 8px; color: white;"><a href="/log-out"
                     style="color: white; text-decoration-line: none;"> Log Out </a></button>
         </div>
 
@@ -62,7 +62,7 @@
                     <tbody>
                         <tr>
                             <td>{{this.index}}</td>
-                            <td>{{this.name}}</td>
+                            <td><p style="white-space:nowrap; overflow: hidden;text-overflow: ellipsis;width: 150px;">{{this.name}}</p></td>
                             <td>{{this.category_id.name}}</td>
                             <td>{{this.date}}</td>
                             <td>{{this.time}}</td>

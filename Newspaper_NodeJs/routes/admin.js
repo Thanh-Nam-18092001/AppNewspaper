@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const adminController = require("../components/admin/controller");
 /**
- * 1: http://localhost:3000/admin/login
+ * 1: http://localhost:3000/login
  * method: get
  * desc: Hiển thị trang đăng nhập ADMIN
  */
@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
 });
 
 /**
- * 2: http://localhost:3000/admin/login
+ * 2: http://localhost:3000/login
  * method: post
  * desc: Tiến hành đăng nhập ADMIN
  */
@@ -52,9 +52,9 @@ router.post("/register", async function (req, res, next) {
   if (admin) {
     const token = jwt.sign({ id: admin._id, username: admin.username }, 'mykey');
     req.session.token = token;
-    res.redirect("/admin/login");
+    res.redirect("/login");
   } else {
-    res.redirect("/admin/register");
+    res.redirect("/register");
   }
 });
 
@@ -65,7 +65,7 @@ router.post("/register", async function (req, res, next) {
  */
 router.get("/log-out", async function (req, res, next) {
   req.session.destroy(function (err) {
-    res.redirect('/admin/login');
+    res.redirect('/');
   });
 });
 
